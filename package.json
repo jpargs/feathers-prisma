@@ -1,0 +1,21 @@
+{
+  "name": "feathers-prisma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@feathersjs/express": "^4.5.11",
+    "@feathersjs/feathers": "^4.5.11",
+    "@feathersjs/socketio": "^4.5.11",
+    "@prisma/client": "^2.19.0"
+  },
+  "devDependencies": {
+    "prisma": "^2.19.0"
+  }
+}
