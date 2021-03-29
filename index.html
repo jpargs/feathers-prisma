@@ -8,8 +8,9 @@
 </head>
 <body>
   <main id="main" class="container">
-    <h1>Welcome to Feathers</h1>
+    <h1>Sample feathers app with prisma</h1>
     <form class="form" onsubmit="sendMessage(event.preventDefault())">
+      <input type="text" id="username" placeholder="username">
       <input type="text" id="message-text" placeholder="Enter message here">
       <button type="submit" class="button button-primary">Send message</button>
     </form>
@@ -31,18 +32,21 @@
     // Form submission handler that sends a new message
     async function sendMessage () {
       const messageInput = document.getElementById('message-text');
+      const username = document.getElementById('username');
 
       // Create a new message with the input field value
       await app.service('messages').create({
-        text: messageInput.value
+        text: messageInput.value,
+        username: username.value
       });
 
       messageInput.value = '';
+      username.value = '';
     }
 
     // Renders a single message on the page
     function addMessage (message) {
-      document.getElementById('main').innerHTML += `<p>${message.content}</p>`;
+      document.getElementById('main').innerHTML += `<p> <b>${message.username}:</b> ${message.content}</p>`;
     }
 
     const main = async () => {

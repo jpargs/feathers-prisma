@@ -8,15 +8,16 @@ const prisma = new PrismaClient()
 class MessageService {
   async find () {
     // Just return all our messages
-    const allUsers = await prisma.message.findMany()
+    const allMessages = await prisma.message.findMany()
 
-    return allUsers;
+    return allMessages;
   }
 
   async create (data) {
     const message = await prisma.message.create({
       data: {
-        content: data.text
+        content: data.text,
+        username: data.username
       }
     })
 
@@ -57,5 +58,6 @@ app.listen(3030).on('listening', () =>
 // For good measure let's create a message
 // So our API doesn't look so empty
 app.service('messages').create({
-  text: 'Hello world from the server'
+  text: 'Hello world from the server',
+  username: 'paul'
 });

@@ -13,4 +13,5 @@ generator client {
 model Message {
   id        Int      @default(autoincrement()) @id
   content   String?
+  username  String?
 }
